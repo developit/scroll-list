@@ -10,9 +10,12 @@
  *	// insert the list into an element:
  *	list.insertInto(document.body);
  *	
- *	// generate and display 1,000,000 rows
- *	var mil = new Array(1e7).map(function(e, i){ return {a:i+'a', b:i+'b', c:i+'c'}; });
- *	list.setData(mil);
+ *  // generate and display 1,000,000 rows
+ *  var mil = [];
+ *  for (var i=1e6; i--; ) {
+ *      mil[i] = {a:i+'a', b:i+'b', c:i+'c'};
+ *  }
+ *  list.setData(mil);
  */
 function ScrollList(opts) {
     events.EventEmitter.call(this);
