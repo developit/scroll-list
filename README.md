@@ -2,7 +2,9 @@ ScrollList
 ==========
 
 > An infinitely scrollable list/datagrid.  
-> Throw millions of rows at it, it won't even affect performance.
+> Throw millions of rows at it, it won't even affect performance.  
+> [JSFiddle Demo](http://jsfiddle.net/developit/j8swt8zb/)
+
 
 Usage
 -----
@@ -16,14 +18,17 @@ var list = new ScrollList({
 	bufferedScrolling : true,
 	
 	// provide a DOM node to clone, used as a template for each row
-	template : document.getElementById('#row-template')[0].content.firstElementChild
+	template : document.getElementById('row-template').content.firstElementChild
 });
 
 // insert the list into an element:
 list.insertInto(document.body);
 
 // generate and display 1,000,000 rows
-var mil = new Array(1e7).map(function(e, i){ return {a:i+'a', b:i+'b', c:i+'c'}; });
+var mil = [];
+for (var i=1e6; i--; ) {
+    mil[i] = {a:i+'a', b:i+'b', c:i+'c'};
+}
 list.setData(mil);
 
 // later on, select a row:
